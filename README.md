@@ -11,3 +11,5 @@
    - 섹션 2 > 스프링 웹 개발 기초 > API
    - Api에 @ResponseBody를 붙어주지 않으면 return할 때 viewResolver를 통해서 템플릿을 찾아 html을 던져줌 [JedongController - 19L]
    - @ResponseBody를 붙어주면 return할 때 HttpMessageConverter를 통해 String이면 StringConverter 객체면 jsonConverter를 통해 데이터를 그대로 응답 [JedongController - 26L]
+
+test
