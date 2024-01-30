@@ -31,4 +31,30 @@
 - static import → option + enter
 - 변수명 한번에 리팩토링 → shift + F6
 
-test
+## 0129
+
+### Section3
+
+- 회원 서비스 개발
+- 회원 서비스 테스트
+    - 테스트 케이스의 메서드명은 한글로 해놓으면 편함 [MemberServiceTest]
+    - 테스트 케이스를 작성할때는 given → when → then 형식으로 작성하면 좋다
+    - 로직의 예외가 잘 발생하는지 테스트하는것도 중요하다.
+        - try-catch로 exception을 잡을 수도 있지만 assertThrows를 이용해서 테스트를 할 수도 있다. [MemberServiceTest - 중복_회원_예외 로직 중 ]
+    - DI(의존성 주입) 사용
+        - 테스트 시 계속 다른 repository를 사용하지 않고 같은 repository를 사용할 수 있게 테스트 케이스 실행 전에 service에 의존성주입으로 테스트를 실행한다. [MemberServiceTest - @BeforeEach 로직 중]
+
+### Section4
+
+- 컴포넌트 스캔과 자동 의존관계 설정
+    - @Controller, @Service, @Repository 어노테이션을 붙어서 자동으로 스트링 빈 컨테이너에 등록하게 하는 것
+    - @Component 어노테이션을 붙이면 spring에서 스캔을 해서 등록시키는데 위의 3개 어노테이션 안에 @Conponent 어노테이션이 붙어있다.
+
+*intelliJ 단축키
+
+- 리턴 값을 자동생성 → commend + option + v
+- 팩토링관련된 메뉴 → control + t
+    - 함수 추출
+- 테스트 케이스 자동 생성 → commend + shift + T
+- 테스트 케이스 실행 → commend + shift + R (테스트 하고싶은 블럭에서 단축키)
+- 생성자 자동생성 → commend + N
