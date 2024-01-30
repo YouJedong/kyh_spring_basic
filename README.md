@@ -30,3 +30,5 @@
 *인텔리j 단축키
 - static import → option + enter
 - 변수명 한번에 리팩토링 → shift + F6
+
+test
