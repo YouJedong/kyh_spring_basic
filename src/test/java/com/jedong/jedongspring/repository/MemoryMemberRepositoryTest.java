@@ -26,7 +26,7 @@ public class MemoryMemberRepositoryTest {
 
         repository.save(member);
 
-        Member result = repository.findById(member.getUserId()).get();
+        Member result = repository.findById(member.getId()).get();
         //Assertions.assertEquals(member, null); // org.assertj.core.api.Assertions 사용법
         assertThat(member).isEqualTo(result); // org.assertj.core.api.Assertions 사용법(이걸 많이씀)
 

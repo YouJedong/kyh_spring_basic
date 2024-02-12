@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
 public class MemberService {
 
     private final MemberRepository memberRepository;
@@ -40,7 +39,7 @@ public class MemberService {
         validateDuplicateMember(member);
 
         memberRepository.save(member);
-        return member.getUserId();
+        return member.getId();
     }
 
     /**
@@ -53,8 +52,8 @@ public class MemberService {
     /**
      * 회원 상세 조회
      * */
-    public Optional<Member> findOne(Long userId) {
-        return memberRepository.findById(userId);
+    public Optional<Member> findOne(Long id) {
+        return memberRepository.findById(id);
     }
 
 

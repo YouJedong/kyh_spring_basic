@@ -58,3 +58,72 @@
 - 테스트 케이스 자동 생성 → commend + shift + T
 - 테스트 케이스 실행 → commend + shift + R (테스트 하고싶은 블럭에서 단축키)
 - 생성자 자동생성 → commend + N
+
+## 0212
+
+### Section4
+
+- 자바 코드로 직접 스프링 빈 등록하기
+    - @Service, @Repository를 쓰지 않고 직접 빈에 등록하는 방법
+    - SpringConfig.java를 생성 후 @Bean을 통해 직접 등록을 한다.
+
+
+*DI(Dependency Injection)의 3가지 방법
+
+- 필드 주입, setter 주입, 생성자 주입
+- 의존관계가 실행중에는 동적으로 변할 일이 없으므로 생성자 주입을 권장한다.
+
+### Section5
+
+- 회원관리예제  - 웹 MVC개발
+    1. 회원 등록
+    2. 회원 조회
+
+### Section6
+
+- 스프링 DB접근 기술
+    1. H2를 이용한 DB접근 기술
+        - 웹 콘솔로 접속
+
+            ```java
+            // mac
+            // 권한 변경
+            chmod 755 h2.sh
+            
+            // 실행
+            ./h2.sh
+            
+            데이터베이스 파일 생성 방법
+            `jdbc:h2:~/test` (최초 한번)
+            `~/test.mv.db` 파일 생성 확인
+            이후부터는 `jdbc:h2:tcp://localhost/~/test` 이렇게 접속
+            ```
+
+        - 프로젝트와 연결
+            1. build.gradle에 dependency 추가
+
+                ```java
+                implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+                runtimeOnly 'com.h2database:h2'
+                ```
+
+            2. properties에 url, driver-class-name, user-name추가 (h2는 암호 필요 없음)
+
+                ```java
+                spring.datasource.url=jdbc:h2:tcp://localhost/~/test
+                spring.datasource.driver-class-name=org.h2.Driver
+                spring.datasource.username=sa
+                ```
+
+    *SpringConfig.java로 DB를 관리하면 나중에 DB를 바꿀때 쉽게 교체할 수 있다.
+    
+    ```java
+    @Bean
+    public MemberRepository memberRepository() {
+    	  // return new MemoryMemberRepository();  
+    		return  new JdbcMemberRepository(dataSource);
+    }
+    ```
+    
+    - 스프링의 DI(Dependencies Injection)을 사용하면 **기존 코드를 전혀 손대지 않고, 설정만으로 구현 클래스를 변경**할 수 있다.
+    - 이것을 **개방-폐쇄의 법칙(OCP - Open-Closed Principle)**이라고 한다 *DB를 확장하는데에는 개방적이고 수정하는 것에는 폐쇄적이다.
