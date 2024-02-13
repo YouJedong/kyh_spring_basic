@@ -1,7 +1,10 @@
 package com.jedong.jedongspring.domain;
 
-public class Member {
+import jakarta.persistence.*;
 
+@Entity
+public class Member {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     String name;

@@ -1,9 +1,8 @@
 package com.jedong.jedongspring;
 
-import com.jedong.jedongspring.repository.JdbcMemberRepository;
-import com.jedong.jedongspring.repository.MemberRepository;
-import com.jedong.jedongspring.repository.MemoryMemberRepository;
+import com.jedong.jedongspring.repository.*;
 import com.jedong.jedongspring.service.MemberService;
+import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,12 +12,15 @@ import javax.sql.DataSource;
 @Configuration
 public class SpringConfig {
 
-    private DataSource dataSource;
+    private EntityManager entityManager;
 
     @Autowired
-    public SpringConfig(DataSource dataSource) {
-        this.dataSource = dataSource;
+    public SpringConfig(EntityManager entityManager) {
+        this.entityManager = entityManager;
     }
+
+
+
 
     @Bean
     public MemberService memberService() {
@@ -27,6 +29,7 @@ public class SpringConfig {
 
     @Bean
     public MemberRepository memberRepository() {
-        return  new JdbcMemberRepository(dataSource);
+//        return  new JdbcTemplateMemberRepository(dataSource);
+        return new JpaMemberRepository(entityManager);
     }
 }

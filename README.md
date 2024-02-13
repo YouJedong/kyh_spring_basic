@@ -127,3 +127,12 @@
     
     - 스프링의 DI(Dependencies Injection)을 사용하면 **기존 코드를 전혀 손대지 않고, 설정만으로 구현 클래스를 변경**할 수 있다.
     - 이것을 **개방-폐쇄의 법칙(OCP - Open-Closed Principle)**이라고 한다 *DB를 확장하는데에는 개방적이고 수정하는 것에는 폐쇄적이다.
+
+## 0213
+
+- 스프링 통합 테스트
+    - DB와 연결 후 아래 어노테이션을 테스트 class에 붙어서 쉽게 테스트 가능하다(MemberIntegrationServiceTest.java)
+        - @SpringBootTest : 스프링 컨테이너와 테스트를 함께 실행
+        - @Transactional : 테스트 케이스에 이 어노테이션이 있으면 테스트 시작전에 트랜젝션을 시작하고 완료 후에 항상 롤백 하기 때문에 다음 테스트에 영향을 주지 않음(테스트 케이스에서만 유효한 기능)
+- 스프링 JdbcTemplate
+- JPA
