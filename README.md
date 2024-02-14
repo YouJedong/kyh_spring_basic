@@ -136,3 +136,7 @@
         - @Transactional : 테스트 케이스에 이 어노테이션이 있으면 테스트 시작전에 트랜젝션을 시작하고 완료 후에 항상 롤백 하기 때문에 다음 테스트에 영향을 주지 않음(테스트 케이스에서만 유효한 기능)
 - 스프링 JdbcTemplate
 - JPA
+
+## 0214
+- 스프링 데이터 JPA
+    - JpaRepository를 상속받은 interface를 만들면 자동적으로 Spring bean에 구현체를 만들어준다.
