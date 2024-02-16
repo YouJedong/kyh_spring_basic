@@ -140,3 +140,8 @@
 ## 0214
 - 스프링 데이터 JPA
     - JpaRepository를 상속받은 interface를 만들면 자동적으로 Spring bean에 구현체를 만들어준다.
+
+## 0216
+- AOP(Aspect Oriented Programming)
+    - 공통 관심사항과 핵심 관심 사항을 분리
+- AOP 적용중 오류 발생.. 해결할것

@@ -1,5 +1,6 @@
 package com.jedong.jedongspring;
 
+import com.jedong.jedongspring.aop.TimeTraceAop;
 import com.jedong.jedongspring.repository.*;
 import com.jedong.jedongspring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,11 @@ public class SpringConfig {
     @Bean
     public MemberService memberService() {
         return new MemberService(memberRepository);
+    }
+
+    @Bean
+    public TimeTraceAop timeTraceAop() {
+        return new TimeTraceAop();
     }
 
 //    @Bean
