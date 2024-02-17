@@ -145,3 +145,11 @@
 - AOP(Aspect Oriented Programming)
     - 공통 관심사항과 핵심 관심 사항을 분리
 - AOP 적용중 오류 발생.. 해결할것
+
+## 0216
+- AOP(Aspect Oriented Programming)
+    - 공통 관심사항과 핵심 관심 사항을 분리
+- AOP 적용중 오류 발생.. 해결할것
+    - 강의 보는 중 Bean에 등록했다가 지우고 Aop 클래스에 Component 어노테이션에 등록했는데 둘다 넣어놔서 오류가 났었음
+- AOP 이해
+    - 어떤 API가 실행 되든 간에 공통적으로 처리해야할 사항이 있을때 AOP를 설정해놓는 것이다.
